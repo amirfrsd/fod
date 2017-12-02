@@ -85,7 +85,7 @@ port:8118
 
 <h2 lang="fa" dir="rtl" align="right">Xcode - iOS</h2>
 <p lang="fa" dir="rtl" align="right">ریکوئست های خود را با NSURLSession بصورت زیر بزنید<br></p>
-```Objective-C
+```
 NSString* proxyHost = @"fod.backtory.com";
 NSNumber* proxyPort = [NSNumber numberWithInt: 8118];
 NSDictionary *proxyDict = @{
@@ -108,8 +108,8 @@ NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHand
                               }];
 NSLog(@"Lets fire up the task!");
 [task resume];
-
 ```
+
 <h2 lang="fa" dir="rtl" align="right">Gradle</h2>
 <p lang="fa" dir="rtl" align="right">در فایل gradle.properties سراسری خط‌های زیر را به همراه اطلاعات پراکسی اضافه کنید. چنانچه تنظیمات در فایل gradle.properties سطح پروژه جاری اضافه شود، به مخزن گیت‌ شما اضافه شده و ممکن است برای عملکرد CI ایجاد اشکال کند.</p>
 <p lang="fa" dir="rtl" align="right">سایت‌هایی که تحریم نیستند را می‌توانید در nonProxyHosts قرار دهید </p>
