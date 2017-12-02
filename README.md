@@ -84,8 +84,9 @@ port:8118
 <p lang="fa" dir="rtl" align="right">سایت‌هایی که تحریم نیستند را می‌توانید در No proxy for قرار دهید </p>
 
 <h2 lang="fa" dir="rtl" align="right">Xcode - iOS</h2>
-<p lang="fa" dir="rtl" align="right">ریکوئست های خود را با NSURLSession بصورت زیر بزنید<br></p>
-```NSString* proxyHost = @"fod.backtory.com";
+<p lang="fa" dir="rtl" align="right">ریکوئست های خود را با NSURLSession بصورت زیر بزنید</p>
+```Objective-C
+NSString* proxyHost = @"fod.backtory.com";
 NSNumber* proxyPort = [NSNumber numberWithInt: 8118];
 NSDictionary *proxyDict = @{
     @"HTTPEnable"  : [NSNumber numberWithInt:1],
