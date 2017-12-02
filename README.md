@@ -85,8 +85,7 @@ port:8118
 
 <h2 lang="fa" dir="rtl" align="right">Xcode - iOS</h2>
 <p lang="fa" dir="rtl" align="right">ریکوئست های خود را با NSURLSession بصورت زیر بزنید<br></p>
-```
-NSString* proxyHost = @"fod.backtory.com";
+```NSString* proxyHost = @"fod.backtory.com";
 NSNumber* proxyPort = [NSNumber numberWithInt: 8118];
 NSDictionary *proxyDict = @{
     @"HTTPEnable"  : [NSNumber numberWithInt:1],
