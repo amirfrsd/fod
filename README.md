@@ -82,6 +82,34 @@ port:8118
 <h2 lang="fa" dir="rtl" align="right">Android Studio</h2>
 <p lang="fa" dir="rtl" align="right">وارد settings شوید، در لینوکس از منوی file (ویندوز و مک هم شبیه هستند)<br>در کادر جست‌جو عبارت proxy وارد کنید تا صفحه http proxy آورده شود<br>گزینه Manual proxy configuration انتخاب کنید سپس http<br>در مقابل Host name آدرس پراکسی و در مقابل Port number پورت گفته شده وارد کنید</p>
 <p lang="fa" dir="rtl" align="right">سایت‌هایی که تحریم نیستند را می‌توانید در No proxy for قرار دهید </p>
+
+<h2 lang="fa" dir="rtl" align="right">Xcode - iOS</h2>
+<p lang="fa" dir="rtl" align="right">ریکوئست های خود را با NSURLSession بصورت زیر بزنید<br></p>
+```Objective-C
+NSString* proxyHost = @"fod.backtory.com";
+NSNumber* proxyPort = [NSNumber numberWithInt: 8118];
+NSDictionary *proxyDict = @{
+    @"HTTPEnable"  : [NSNumber numberWithInt:1],
+    (NSString *)kCFStreamPropertyHTTPProxyHost  : proxyHost,
+    (NSString *)kCFStreamPropertyHTTPProxyPort  : proxyPort,
+    
+    @"HTTPSEnable" : [NSNumber numberWithInt:1],
+    (NSString *)kCFStreamPropertyHTTPSProxyHost : proxyHost,
+    (NSString *)kCFStreamPropertyHTTPSProxyPort : proxyPort,
+};
+NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+configuration.connectionProxyDictionary = proxyDict;
+NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"URL-TO-SEND-REQUEST"]];
+NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:
+                              ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                  NSLog(@"NSURLSession got the response [%@]", response);
+                                  NSLog(@"NSURLSession got the data [%@]", data);
+                              }];
+NSLog(@"Lets fire up the task!");
+[task resume];
+
+```
 <h2 lang="fa" dir="rtl" align="right">Gradle</h2>
 <p lang="fa" dir="rtl" align="right">در فایل gradle.properties سراسری خط‌های زیر را به همراه اطلاعات پراکسی اضافه کنید. چنانچه تنظیمات در فایل gradle.properties سطح پروژه جاری اضافه شود، به مخزن گیت‌ شما اضافه شده و ممکن است برای عملکرد CI ایجاد اشکال کند.</p>
 <p lang="fa" dir="rtl" align="right">سایت‌هایی که تحریم نیستند را می‌توانید در nonProxyHosts قرار دهید </p>
