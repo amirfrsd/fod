@@ -88,7 +88,7 @@ port:8118
 ```Objective-C
 NSString* proxyHost = @"fod.backtory.com";
 NSNumber* proxyPort = [NSNumber numberWithInt: 8118];
-NSDictionary *proxyDict = @{
+```NSDictionary *proxyDict = @{
     @"HTTPEnable"  : [NSNumber numberWithInt:1],
     (NSString *)kCFStreamPropertyHTTPProxyHost  : proxyHost,
     (NSString *)kCFStreamPropertyHTTPProxyPort  : proxyPort,
@@ -96,7 +96,7 @@ NSDictionary *proxyDict = @{
     @"HTTPSEnable" : [NSNumber numberWithInt:1],
     (NSString *)kCFStreamPropertyHTTPSProxyHost : proxyHost,
     (NSString *)kCFStreamPropertyHTTPSProxyPort : proxyPort,
-};
+};```
 NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
 configuration.connectionProxyDictionary = proxyDict;
 NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
