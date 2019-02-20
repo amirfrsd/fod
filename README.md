@@ -85,10 +85,10 @@ port:8118
 
 <h2 lang="fa" dir="rtl" align="right">Xcode - iOS</h2>
 <p lang="fa" dir="rtl" align="right">ریکوئست های خود را با NSURLSession بصورت زیر بزنید</p>
-```Objective-C
+```
 NSString* proxyHost = @"fod.backtory.com";
 NSNumber* proxyPort = [NSNumber numberWithInt: 8118];
-```NSDictionary *proxyDict = @{
+NSDictionary *proxyDict = @{
     @"HTTPEnable"  : [NSNumber numberWithInt:1],
     (NSString *)kCFStreamPropertyHTTPProxyHost  : proxyHost,
     (NSString *)kCFStreamPropertyHTTPProxyPort  : proxyPort,
@@ -96,7 +96,7 @@ NSNumber* proxyPort = [NSNumber numberWithInt: 8118];
     @"HTTPSEnable" : [NSNumber numberWithInt:1],
     (NSString *)kCFStreamPropertyHTTPSProxyHost : proxyHost,
     (NSString *)kCFStreamPropertyHTTPSProxyPort : proxyPort,
-};```
+};
 NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
 configuration.connectionProxyDictionary = proxyDict;
 NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
